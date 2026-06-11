@@ -53,20 +53,66 @@ h1.hero-name span{display:block;font-style:italic;color:var(--warm);font-weight:
 .btn-outline:hover{background:var(--blush);}
 
 /* hero right: polaroid stack */
-.hero-right{position:relative;z-index:2;height:460px;}
-.polaroid{position:absolute;background:var(--paper);padding:11px 11px 36px;box-shadow:2px 5px 20px rgba(26,14,8,.11);}
-.pol-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.8rem;overflow:hidden;}
+.hero-right{position:relative;z-index:2;height:520px;}
+.polaroid{
+  position:absolute;
+  background:var(--paper);
+  padding:13px 13px 44px;
+  box-shadow:3px 7px 24px rgba(26,14,8,.13);
+  cursor:pointer;
+  user-select:none;
+  -webkit-user-select:none;
+  /* transitions: transform, shadow, z-index */
+  transition:
+    transform 0.55s cubic-bezier(.34,1.3,.64,1),
+    box-shadow 0.4s ease,
+    opacity 0.45s ease;
+  will-change:transform;
+}
+
+/* hover on the active/front polaroid */
+.polaroid:hover{
+  box-shadow:6px 14px 40px rgba(107,61,40,.22);
+  transform-origin:center center;
+}
+
+/* front (active) polaroid */
+.polaroid.pol-front{
+  box-shadow:5px 12px 38px rgba(107,61,40,.19);
+}
+
+.pol-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.2rem;overflow:hidden;}
 .pol-inner img{width:100%;height:100%;object-fit:cover;}
-.p1{width:225px;height:265px;top:18px;left:18px;transform:rotate(-3.5deg);z-index:3;}
-.p2{width:190px;height:230px;top:55px;left:150px;transform:rotate(4deg);z-index:2;}
-.p3{width:172px;height:208px;top:178px;left:55px;transform:rotate(-1deg);z-index:1;}
+
+/* base sizes — JS will manage positions & z-index */
+.p1{width:305px;height:365px;top:10px;left:10px;transform:rotate(-3.5deg);z-index:3;}
+.p2{width:265px;height:320px;top:50px;left:155px;transform:rotate(4.2deg);z-index:2;}
+.p3{width:238px;height:288px;top:185px;left:48px;transform:rotate(-1.2deg);z-index:1;}
 .p3 .pol-inner{background:linear-gradient(135deg,#fef3c7,#f0d890);}
-.pol-cap{font-family:'Caveat',cursive;font-size:.82rem;color:#6b4a30;text-align:center;margin-top:5px;}
-.tape{position:absolute;width:46px;height:14px;background:rgba(254,243,199,.88);top:-7px;left:50%;transform:translateX(-50%) rotate(-.8deg);box-shadow:0 1px 3px rgba(0,0,0,.07);}
+
+.pol-cap{font-family:'Caveat',cursive;font-size:.9rem;color:#6b4a30;text-align:center;margin-top:7px;line-height:1.3;}
+.tape{position:absolute;width:52px;height:15px;background:rgba(254,243,199,.88);top:-8px;left:50%;transform:translateX(-50%) rotate(-.8deg);box-shadow:0 1px 3px rgba(0,0,0,.07);}
 .tape-r{left:28%;transform:rotate(3.5deg);}
 .tape-l{left:62%;transform:rotate(-2.2deg);}
-.sticky-h{position:absolute;bottom:68px;right:6px;background:#fef9c3;padding:.85rem .95rem;width:142px;font-family:'Caveat',cursive;font-size:.93rem;color:#5a3800;transform:rotate(2.2deg);box-shadow:2px 3px 14px rgba(0,0,0,.1);z-index:4;line-height:1.55;}
+.sticky-h{position:absolute;bottom:40px;right:-8px;background:#fef9c3;padding:.85rem .95rem;width:148px;font-family:'Caveat',cursive;font-size:.93rem;color:#5a3800;transform:rotate(2.2deg);box-shadow:2px 3px 14px rgba(0,0,0,.1);z-index:4;line-height:1.55;pointer-events:none;}
 .sticky-h::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:#fde047;opacity:.7;}
+
+/* hint label under front polaroid */
+.pol-hint{position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);font-family:'Caveat',cursive;font-size:.8rem;color:var(--dusty);opacity:0;transition:opacity .3s;white-space:nowrap;pointer-events:none;}
+.hero-right:hover .pol-hint{opacity:.65;}
+
+/* animation keyframes */
+@keyframes polToBack{
+  0%  {transform:var(--base-rot) translateY(0) scale(1);}
+  30% {transform:var(--base-rot) translateY(-28px) scale(1.03) rotate(2deg);}
+  60% {transform:var(--base-rot) translateY(8px) scale(.97) rotate(-4deg);}
+  100%{transform:var(--base-rot) translateY(0) scale(1);}
+}
+@keyframes polToFront{
+  0%  {transform:var(--base-rot) scale(.95);}
+  60% {transform:var(--base-rot) scale(1.04);}
+  100%{transform:var(--base-rot) scale(1);}
+}
 
 /* ════════════════════════════
    SHARED
@@ -255,6 +301,24 @@ footer{background:var(--ink);color:rgba(250,244,236,.38);text-align:center;paddi
 .floral{text-align:center;padding:1.2rem 0;font-size:.9rem;opacity:.25;letter-spacing:.75rem;}
 .sparkle{position:fixed;pointer-events:none;z-index:9998;animation:sf .75s ease forwards;}
 @keyframes sf{0%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(.15) translateY(-22px);}}
+
+/* ════════════════════════════
+   RESPONSIVE — POLAROIDS
+════════════════════════════ */
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;padding:6rem 2rem 3rem;}
+  .hero-right{height:360px;margin-top:1.5rem;}
+  .p1{width:220px;height:265px;}
+  .p2{width:190px;height:230px;}
+  .p3{width:170px;height:208px;}
+  .sticky-h{display:none;}
+}
+@media(max-width:600px){
+  .hero-right{height:310px;}
+  .p1{width:190px;height:232px;top:8px;left:6px;}
+  .p2{width:165px;height:200px;top:40px;left:120px;}
+  .p3{width:150px;height:185px;top:148px;left:36px;}
+}
 </style>
 </head>
 <body>
@@ -311,10 +375,12 @@ footer{background:var(--ink);color:rgba(250,244,236,.38);text-align:center;paddi
       </div>
       <p class="pol-cap">bordeaux chapter 🌸</p>
     </div>
-    <!-- POLAROID 3: Keep emoji -->
+    <!-- POLAROID 3: Paris chapter -->
     <div class="polaroid p3">
       <div class="tape tape-l"></div>
-      <div class="pol-inner">✈️</div>
+      <div class="pol-inner">
+        <img src="parischapter.jpeg" alt="Paris chapter" style="object-position:center top;"/>
+      </div>
       <p class="pol-cap">paris chapter ✨</p>
     </div>
     <div class="sticky-h">curiosity became a career by accident ✨</div>
@@ -668,6 +734,7 @@ footer{background:var(--ink);color:rgba(250,244,236,.38);text-align:center;paddi
 <footer>© 2025 Vigneshwari Nalla · crafted with curiosity, coffee & a lot of post-its.</footer>
 
 <script>
+/* ─── counter animation ─── */
 document.querySelectorAll('.nv[data-target]').forEach(el=>{
   const io=new IntersectionObserver(entries=>{
     if(!entries[0].isIntersecting)return;
@@ -678,8 +745,12 @@ document.querySelectorAll('.nv[data-target]').forEach(el=>{
   },{threshold:.5});
   io.observe(el);
 });
+
+/* ─── fade in sections ─── */
 const fo=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.06});
 document.querySelectorAll('.fade-in').forEach(el=>fo.observe(el));
+
+/* ─── cursor sparkles ─── */
 const sp=['✦','✿','❀','⋆','◦','❁','✸','·','✩'];
 document.addEventListener('mousemove',e=>{
   if(Math.random()>.11)return;
@@ -688,6 +759,103 @@ document.addEventListener('mousemove',e=>{
   s.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;color:hsl(${Math.random()*65+315},52%,65%);font-size:.9rem;pointer-events:none;z-index:9998;`;
   document.body.appendChild(s);setTimeout(()=>s.remove(),750);
 });
+
+/* ─── POLAROID STACK INTERACTION ─── */
+(function(){
+  const pols = [
+    document.querySelector('.p1'),
+    document.querySelector('.p2'),
+    document.querySelector('.p3'),
+  ];
+  if(!pols[0]) return;
+
+  // base rotations matching CSS
+  const baseRots = [-3.5, 4.2, -1.2];
+  // base positions [top, left] for each slot: front, middle, back
+  const slotPos = [
+    { top: 10,  left: 10,  scale: 1,    zIndex: 3 },  // front
+    { top: 50,  left: 155, scale: 0.92, zIndex: 2 },  // middle
+    { top: 185, left: 48,  scale: 0.85, zIndex: 1 },  // back
+  ];
+
+  // order[i] = which slot polaroid i is currently in (0=front, 1=mid, 2=back)
+  let order = [0, 1, 2];
+  let animating = false;
+
+  function applySlot(polIdx, slotIdx, animate){
+    const pol = pols[polIdx];
+    const slot = slotPos[slotIdx];
+    const rot = baseRots[polIdx];
+
+    pol.style.zIndex = slot.zIndex;
+    pol.style.top = slot.top + 'px';
+    pol.style.left = slot.left + 'px';
+
+    const transform = `rotate(${rot}deg) scale(${slot.scale})`;
+    if(animate){
+      pol.style.transition =
+        'transform 0.55s cubic-bezier(.34,1.3,.64,1), box-shadow 0.4s ease, top 0.55s cubic-bezier(.34,1.3,.64,1), left 0.55s cubic-bezier(.34,1.3,.64,1)';
+    } else {
+      pol.style.transition = 'none';
+    }
+    pol.style.transform = transform;
+
+    // shadow: stronger for front
+    if(slotIdx === 0){
+      pol.style.boxShadow = '5px 12px 38px rgba(107,61,40,.22)';
+      pol.classList.add('pol-front');
+    } else {
+      pol.style.boxShadow = '3px 7px 24px rgba(26,14,8,.11)';
+      pol.classList.remove('pol-front');
+    }
+  }
+
+  // Initial placement without animation
+  pols.forEach((_, i) => applySlot(i, order[i], false));
+
+  function rotateFront(){
+    if(animating) return;
+    animating = true;
+
+    // find which polaroid is currently front (slot 0)
+    const frontPolIdx = order.indexOf(0);
+
+    // shift: slot 0->back(2), slot 1->front(0), slot 2->mid(1)
+    order = order.map(slot => {
+      if(slot === 0) return 2;
+      if(slot === 1) return 0;
+      if(slot === 2) return 1;
+    });
+
+    // The outgoing front photo: lift up first, then settle to back
+    const outgoing = pols[frontPolIdx];
+    const rot = baseRots[frontPolIdx];
+
+    // Phase 1: lift
+    outgoing.style.transition = 'transform 0.22s ease-out, box-shadow 0.2s ease';
+    outgoing.style.transform = `rotate(${rot - 2}deg) scale(1.06) translateY(-18px)`;
+    outgoing.style.boxShadow = '8px 20px 50px rgba(107,61,40,.28)';
+    outgoing.style.zIndex = 10;
+
+    setTimeout(()=>{
+      // Phase 2: animate all to new slots
+      pols.forEach((_, i) => applySlot(i, order[i], true));
+      setTimeout(()=>{ animating = false; }, 580);
+    }, 200);
+  }
+
+  // Click on any visible photo to flip
+  pols.forEach(pol => {
+    pol.addEventListener('click', rotateFront);
+    pol.addEventListener('touchend', e => { e.preventDefault(); rotateFront(); });
+  });
+
+  // Add hint text
+  const hint = document.createElement('p');
+  hint.className = 'pol-hint';
+  hint.textContent = 'tap to flip ✦';
+  document.querySelector('.hero-right').appendChild(hint);
+})();
 </script>
 </body>
 </html>
