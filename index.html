@@ -819,6 +819,12 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
 .p-solo .stats{margin-top:0;}
 .p-solo .sticky{margin-top:1rem;}
 @media(max-width:900px){.p-solo{display:flex;flex-direction:column;gap:1rem;}.p-solo>div{display:contents;}.p-solo .sp-lede{order:1}.p-solo .stats{order:2;margin:.4rem 0 0}.p-solo .tools{order:3}.p-solo .case-ctas{order:4}.p-solo .sticky{order:5;align-self:flex-start}}
+.nb-prog{list-style:none;margin:.2rem 0 1rem;padding:0;font-family:var(--hand);font-size:1.15rem;line-height:1.45;color:var(--muted);}
+.nb-prog li::before{content:'○';display:inline-block;width:1.4em;color:var(--rose);}
+.nb-prog li.d{color:var(--text);}
+.nb-prog li.d::before{content:'✓';color:var(--sage);}
+.nb-prog li.w{color:var(--warm);}
+.nb-prog li.w::before{content:'✎';color:var(--warm);}
 </style>
 </head>
 <body>
@@ -930,6 +936,7 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
             <span class="fact">🎓 MSc data analytics for business · KEDGE · feb 2027</span>
             <span class="fact">🗣 telugu · english · hindi · french (A2, ça progresse)</span>
             <span class="fact">✦ business × operations × data</span>
+            <span class="fact">🧵 currently: a lot of leather maths</span>
           </div>
         </div>
       </div>
@@ -1111,7 +1118,14 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
       <p class="nb-cross">NETFLIX × BOOKS × DATA</p>
       <p class="nb-verbs">researching · analysing · questioning assumptions</p>
       <p class="nb-note">the question i keep circling: when netflix adapts a book, does it measurably shift demand for the novel, or was the book already on its way up?</p>
-      <p class="tools" style="margin-bottom:1.2rem;">Google Trends · Goodreads · before vs after release</p>
+      <ul class="nb-prog">
+        <li class="d">101 Netflix adaptations picked</li>
+        <li class="d">search + Goodreads data collected</li>
+        <li class="d">first full analysis run</li>
+        <li class="w">writing the literature review</li>
+        <li>methodology, results, the big write-up</li>
+      </ul>
+      <p class="tools" style="margin-bottom:1.2rem;">Google Trends · Goodreads · 12 months before vs after release</p>
       <a class="btn ghost" href="https://github.com/vigneshwari2408/netflix-thesis-analysis" target="_blank" rel="noopener">follow the research →</a>
       <span class="doodle-q" aria-hidden="true">?</span>
     </div>
@@ -1562,6 +1576,13 @@ const FRENCH = [
 
 /* Thoughts: status "written" opens the note; "soon" shows a teaser */
 const NOTES = [
+  { id: "workshop", tag: "work in progress", date: "oct 2026", status: "soon",
+    title: "a workshop doesn't open full. who knew.",
+    teaser: "notes from the leather-maths rabbit hole.",
+    body: [
+      "i assumed a new workshop meant all its people, on day one. it doesn't. it fills slowly, and that changes the whole answer.",
+      "that's all i'm saying for now. the full story is on its way ✎"
+    ] },
   { id: "rachel", tag: "life", date: "oct 2026", status: "written",
     title: "rachel green quit and started over. same energy.",
     teaser: "on leaving something steady to start from zero.",
