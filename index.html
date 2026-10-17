@@ -799,10 +799,22 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
 .wsw .n{display:block;font-size:.7rem;margin-top:.3rem;opacity:.75;}
 .ws-q{font-family:var(--hand);font-size:1.35rem;color:#b5531c;margin-top:.9rem;}
 @media(max-width:600px){.ws{grid-template-columns:repeat(2,1fr);}.ws::before{display:none;}.cf.sp-hermes{transform:none;}}
-.wip-btn{background:transparent;color:var(--acc);border:1.5px dashed var(--acc);box-shadow:none;cursor:default;}
-.wip-btn:hover{transform:none;box-shadow:none;}
-.wip-stamp{position:absolute!important;z-index:6!important;top:1.4rem;left:50%;transform:translateX(-50%) rotate(-6deg);font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;line-height:1.25;text-align:center;color:var(--acc);border:2px solid var(--acc);outline:1px solid var(--acc);outline-offset:3px;padding:.45rem .9rem;border-radius:4px;opacity:.9;}
-@media(max-width:600px){.wip-stamp{position:relative!important;display:inline-block;left:auto;top:auto;transform:rotate(-4deg);font-size:.66rem;margin:0 0 1.2rem .3rem;}}
+.soon{position:relative;max-width:520px;margin:3.4rem auto 0;background:linear-gradient(160deg,#2e1c11,#170d07);color:#f5ebdf;border-radius:4px 18px 18px 18px;padding:1.9rem 2rem 1.7rem;text-align:center;box-shadow:0 18px 44px rgba(28,18,12,.3);transform:rotate(-.6deg);}
+.soon::before{content:'';position:absolute;inset:8px;border:1px dashed rgba(232,116,42,.35);border-radius:2px 13px 13px 13px;pointer-events:none;}
+.soon-tab{position:absolute;top:-28px;left:0;height:30px;padding:0 1.2rem;border-radius:12px 12px 0 0;background:#2a190f;color:#e8742a;font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;line-height:32px;}
+.soon-tab b{color:#f5ebdf;opacity:.75;margin-left:.4rem;}
+.soon-k{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:#c9b29f;margin-bottom:.4rem;}
+.soon-t{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.2rem);line-height:1.1;}
+.soon-t em{color:#e8742a;}
+.stitch{display:block;width:min(320px,100%);height:24px;margin:1rem auto .8rem;overflow:visible;}
+.st-guide{stroke:rgba(245,235,223,.18);stroke-width:2;stroke-dasharray:7 6;}
+.st-run{stroke:#e8742a;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:7 6;clip-path:inset(0 100% 0 0);animation:sew 6s ease-in-out infinite;}
+.needle{stroke:#d9d4cc;stroke-width:1.6;fill:none;animation:needle 6s ease-in-out infinite;}
+@keyframes sew{0%{clip-path:inset(0 100% 0 0)}70%,100%{clip-path:inset(0 30% 0 0)}}
+@keyframes needle{0%{transform:translateX(6px)}70%,100%{transform:translateX(222px)}}
+.soon-s{font-family:var(--hand);font-size:1.2rem;line-height:1.35;color:#e9c9a8;max-width:380px;margin:0 auto;}
+@media(prefers-reduced-motion:reduce){.st-run,.needle{animation:none}.st-run{clip-path:inset(0 30% 0 0)}.needle{transform:translateX(222px)}}
+@media(max-width:600px){.soon{transform:none;margin-top:2.8rem;padding:1.6rem 1.3rem 1.5rem;}}
 </style>
 </head>
 <body>
@@ -942,7 +954,7 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
 <section id="work">
   <div class="wrap">
     <h2 class="script-title fade">things i've been working on lately →</h2>
-    <p class="sec-sub fade">two investigations into what the numbers were really saying, and a third on its way.</p>
+    <p class="sec-sub fade">two investigations into what the numbers were really saying.</p>
   </div>
 
   <div class="desk">
@@ -1058,45 +1070,18 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
     </div>
   </article>
 
-  <!-- HERMES -->
-  <article class="cf sp-hermes fade" id="hermes">
-    <span class="cf-tab">case 03 <b>· hermès</b></span>
-    <span class="clip" aria-hidden="true"></span>
-    <span class="wip-stamp">work in<br>progress</span>
-    <div class="sp-head">
-      <p class="sp-kicker">case study · artisan capacity, 2026–2030</p>
-      <p class="sp-brand" aria-hidden="true">HERMÈS</p>
-    </div>
-    <h3 class="sp-title giant">One workshop a year. <em>What does it add?</em></h3>
-    <div class="sp-grid">
-      <div class="exhibit">
-        <span class="exh">EXHIBIT A</span><span class="tape"></span>
-        <h4>four workshops, one at a time ↓</h4>
-        <div class="ws">
-          <div class="wsw"><span class="y">2026</span><span class="pl">Loupes</span><span class="n">260 artisans</span></div>
-          <div class="wsw"><span class="y">2027</span><span class="pl">Charleville</span><span class="n">250 artisans</span></div>
-          <div class="wsw"><span class="y">2028</span><span class="pl">Colombelles</span><span class="n">260 artisans</span></div>
-          <div class="wsw"><span class="y">2030</span><span class="pl">Les Andelys</span><span class="n">260 artisans</span></div>
-        </div>
-        <p class="ws-q">so how much is actually in place by 2030?</p>
-        <p class="src">Artisans at full strength, from Hermès's public announcements. Each workshop takes time to fill.</p>
-      </div>
-      <div class="sp-body">
-        <p class="sp-lede">Hermès plans roughly one new leather workshop a year, and every bag depends on the artisans inside them. But a workshop doesn't open full, and the artisan headcount hasn't been published since 2023.</p>
-        <p class="sp-lede">So I modelled how much capacity the plan really adds by 2030, and which assumptions decide the answer.</p>
-        <div class="stats">
-          <div class="stat"><b><span data-count="4">4</span></b><span>new workshops modelled, 2026–2030</span></div>
-          <div class="stat"><b><span data-count="9">9</span></b><span>scenarios to explore (timing × ramp-up)</span></div>
-          <div class="stat"><b>~<span data-count="1260" data-comma="1">1,260</span></b><span>model values checked against the workbook</span></div>
-        </div>
-        <p class="tools">Excel · Python · JavaScript · public company releases</p>
-        <div class="case-ctas">
-          <span class="sp-btn wip-btn" aria-disabled="true">case file opening soon ✎</span>
-        </div>
-        <div class="sticky">rule i set myself: positions, people and products are three different numbers. only the first one gets counted ✎</div>
-      </div>
-    </div>
-  </article>
+  <!-- HERMES (teaser until launch) -->
+  <div class="soon fade" id="hermes">
+    <span class="soon-tab">case 03 <b>· hermès</b></span>
+    <p class="soon-k">currently on the workbench</p>
+    <p class="soon-t">still stitching <em>this one.</em></p>
+    <svg class="stitch" viewBox="0 0 320 24" aria-hidden="true">
+      <line x1="6" y1="12" x2="314" y2="12" class="st-guide"/>
+      <line x1="6" y1="12" x2="314" y2="12" class="st-run"/>
+      <g class="needle"><line x1="0" y1="12" x2="26" y2="12"/><circle cx="3" cy="12" r="2"/></g>
+    </svg>
+    <p class="soon-s">a luxury house, a lot of leather, and one question i can't stop pulling at. opening soon ✎</p>
+  </div>
   </div>
 
   <!-- OLDER -->
