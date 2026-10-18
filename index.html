@@ -825,6 +825,20 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
 .nb-prog li.d::before{content:'✓';color:var(--sage);}
 .nb-prog li.w{color:var(--warm);}
 .nb-prog li.w::before{content:'✎';color:var(--warm);}
+.notes-about{margin-top:4.2rem;text-align:center;}
+.na-title{font-family:var(--script);font-weight:400;font-size:clamp(2.1rem,4.6vw,2.8rem);color:var(--ink);line-height:1.1;margin-bottom:.3rem;}
+.na-sub{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--muted);margin-bottom:2.2rem;}
+.na-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;text-align:left;}
+.na-card{position:relative;margin:0;padding:2.2rem 2rem 1.6rem;background:repeating-linear-gradient(180deg,var(--white) 0,var(--white) 31px,rgba(160,96,72,.12) 31px,rgba(160,96,72,.12) 32px);box-shadow:2px 8px 26px rgba(28,18,12,.08);}
+.na-card:nth-child(1){transform:rotate(-.8deg);}
+.na-card:nth-child(2){transform:rotate(.7deg);}
+.na-card .tape{top:-9px;left:28px;transform:rotate(-4deg);width:60px;}
+.na-q{position:absolute;top:.2rem;right:1.2rem;font-family:var(--serif);font-size:4.4rem;line-height:1;color:var(--pink);opacity:.7;}
+.na-card blockquote{margin:0 0 1.2rem;font-family:var(--serif);font-style:italic;font-size:1.22rem;line-height:1.55;color:var(--text);}
+.na-card figcaption b{display:block;font-family:var(--hand);font-size:1.45rem;font-weight:500;color:var(--warm);}
+.na-card figcaption span{display:block;font-size:.78rem;letter-spacing:.04em;color:var(--muted);margin-top:.15rem;}
+.na-link{display:inline-block;margin-top:1.8rem;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--warm);text-decoration:none;border-bottom:1px solid var(--rose);padding-bottom:3px;}
+@media(max-width:760px){.na-grid{grid-template-columns:1fr;gap:1.6rem;}.na-card{padding:2rem 1.3rem 1.4rem;}}
 </style>
 </head>
 <body>
@@ -1170,6 +1184,23 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
         <p>500+ Medicare and Medicaid claims a month, plus coordination-of-benefits cases and 25–30 escalated complex claims monthly.</p>
         <p class="lesson">i started noticing patterns before i had a name for what i was doing.</p>
       </div>
+    </div>
+    <div class="notes-about fade">
+      <h3 class="na-title">notes people left about me</h3>
+      <p class="na-sub">real words from people i've worked with, straight from my linkedin ♡</p>
+      <div class="na-grid">
+        <figure class="na-card">
+          <span class="tape"></span><span class="na-q" aria-hidden="true">“</span>
+          <blockquote>She consistently stood out for her sharp logical thinking, problem-solving ability, and strong ownership mindset… She is someone who can break down complex problems, think through them in a structured manner, and arrive at practical solutions.</blockquote>
+          <figcaption><b>Sam Mammen</b><span>Operations &amp; Project Management Leader · managed me directly · Mar 2026</span></figcaption>
+        </figure>
+        <figure class="na-card">
+          <span class="tape"></span><span class="na-q" aria-hidden="true">“</span>
+          <blockquote>Vigneshwari is a dependable and committed professional… She quickly understands process requirements and executes them with accuracy and attention to detail.</blockquote>
+          <figcaption><b>Vishnu Jayakumar</b><span>Lead Benefits Operations Specialist, TriNet · my team lead · Apr 2026</span></figcaption>
+        </figure>
+      </div>
+      <a class="na-link" href="https://www.linkedin.com/in/vigna24/details/recommendations/" target="_blank" rel="noopener">read them in full on linkedin ↗</a>
     </div>
   </div>
 </section>
