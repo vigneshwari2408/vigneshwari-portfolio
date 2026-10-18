@@ -825,20 +825,23 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
 .nb-prog li.d::before{content:'✓';color:var(--sage);}
 .nb-prog li.w{color:var(--warm);}
 .nb-prog li.w::before{content:'✎';color:var(--warm);}
-.notes-about{margin-top:4.2rem;text-align:center;}
-.na-title{font-family:var(--script);font-weight:400;font-size:clamp(2.1rem,4.6vw,2.8rem);color:var(--ink);line-height:1.1;margin-bottom:.3rem;}
-.na-sub{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--muted);margin-bottom:2.2rem;}
-.na-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;text-align:left;}
-.na-card{position:relative;margin:0;padding:2.2rem 2rem 1.6rem;background:repeating-linear-gradient(180deg,var(--white) 0,var(--white) 31px,rgba(160,96,72,.12) 31px,rgba(160,96,72,.12) 32px);box-shadow:2px 8px 26px rgba(28,18,12,.08);}
-.na-card:nth-child(1){transform:rotate(-.8deg);}
-.na-card:nth-child(2){transform:rotate(.7deg);}
-.na-card .tape{top:-9px;left:28px;transform:rotate(-4deg);width:60px;}
-.na-q{position:absolute;top:.2rem;right:1.2rem;font-family:var(--serif);font-size:4.4rem;line-height:1;color:var(--pink);opacity:.7;}
-.na-card blockquote{margin:0 0 1.2rem;font-family:var(--serif);font-style:italic;font-size:1.22rem;line-height:1.55;color:var(--text);}
-.na-card figcaption b{display:block;font-family:var(--hand);font-size:1.45rem;font-weight:500;color:var(--warm);}
-.na-card figcaption span{display:block;font-size:.78rem;letter-spacing:.04em;color:var(--muted);margin-top:.15rem;}
-.na-link{display:inline-block;margin-top:1.8rem;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--warm);text-decoration:none;border-bottom:1px solid var(--rose);padding-bottom:3px;}
-@media(max-width:760px){.na-grid{grid-template-columns:1fr;gap:1.6rem;}.na-card{padding:2rem 1.3rem 1.4rem;}}
+#mail{background:#f3dcd8;}
+.pcards{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;}
+.pcard{margin:0;display:grid;grid-template-columns:1.35fr 1fr;background:#fffaf3;padding:1.8rem 1.6rem;box-shadow:0 14px 34px rgba(107,61,40,.16);transform:rotate(var(--r));position:relative;}
+.pcard::after{content:'';position:absolute;inset:8px;border:1px solid rgba(160,96,72,.14);pointer-events:none;}
+.pc-msg{margin:0;padding-right:1.4rem;border-right:1.5px solid rgba(160,96,72,.3);font-family:var(--hand);font-size:1.42rem;line-height:1.35;color:#3b2a20;}
+.pc-side{position:relative;padding-left:1.3rem;display:flex;flex-direction:column;min-height:100%;}
+.pc-stamp{align-self:flex-end;width:62px;height:74px;background:#e79ab0;display:grid;place-items:center;outline:4px dotted #fffaf3;outline-offset:-3px;box-shadow:0 0 0 3px #e79ab0;transform:rotate(4deg);}
+.pc-stamp i{font-style:normal;color:#fffaf3;font-size:1.6rem;}
+.pc-mark{position:absolute;top:30px;right:52px;width:78px;height:78px;border:1.5px solid rgba(107,61,40,.45);border-radius:50%;display:grid;place-items:center;text-align:center;font-size:.6rem;letter-spacing:.14em;line-height:1.5;color:rgba(107,61,40,.6);transform:rotate(-14deg);}
+.pc-addr{margin-top:auto;padding-top:2.2rem;display:flex;flex-direction:column;gap:.15rem;}
+.pc-addr span{border-bottom:1px solid rgba(160,96,72,.3);padding:.35rem 0 .2rem;font-size:.82rem;color:var(--muted);}
+.pc-addr span:first-child{font-family:var(--hand);font-size:1.4rem;color:var(--warm);}
+.pc-addr small{font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-right:.3rem;}
+.pc-more{text-align:center;margin-top:2.4rem;}
+.pc-more a{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--warm);text-decoration:none;border-bottom:1px solid var(--dusty);padding-bottom:3px;}
+@media(max-width:900px){.pcards{grid-template-columns:1fr;max-width:560px;margin:0 auto;}}
+@media(max-width:520px){.pcard{grid-template-columns:1fr;padding:1.5rem 1.2rem;}.pc-msg{border-right:none;padding-right:0;border-bottom:1.5px solid rgba(160,96,72,.3);padding-bottom:1rem;}.pc-side{padding-left:0;padding-top:1rem;}.pc-side{position:static;}.pc-stamp{position:absolute;top:-1rem;right:1rem;width:50px;height:60px;}.pc-msg{padding-top:2.4rem;}.pc-mark{display:none;}.pc-addr{padding-top:.4rem;}}
 </style>
 </head>
 <body>
@@ -1185,23 +1188,41 @@ header::after{content:'';display:block;height:4px;background:linear-gradient(90d
         <p class="lesson">i started noticing patterns before i had a name for what i was doing.</p>
       </div>
     </div>
-    <div class="notes-about fade">
-      <h3 class="na-title">notes people left about me</h3>
-      <p class="na-sub">real words from people i've worked with, straight from my linkedin ♡</p>
-      <div class="na-grid">
-        <figure class="na-card">
-          <span class="tape"></span><span class="na-q" aria-hidden="true">“</span>
-          <blockquote>She consistently stood out for her sharp logical thinking, problem-solving ability, and strong ownership mindset… She is someone who can break down complex problems, think through them in a structured manner, and arrive at practical solutions.</blockquote>
-          <figcaption><b>Sam Mammen</b><span>Operations &amp; Project Management Leader · managed me directly · Mar 2026</span></figcaption>
-        </figure>
-        <figure class="na-card">
-          <span class="tape"></span><span class="na-q" aria-hidden="true">“</span>
-          <blockquote>Vigneshwari is a dependable and committed professional… She quickly understands process requirements and executes them with accuracy and attention to detail.</blockquote>
-          <figcaption><b>Vishnu Jayakumar</b><span>Lead Benefits Operations Specialist, TriNet · my team lead · Apr 2026</span></figcaption>
-        </figure>
-      </div>
-      <a class="na-link" href="https://www.linkedin.com/in/vigna24/details/recommendations/" target="_blank" rel="noopener">read them in full on linkedin ↗</a>
+  </div>
+</section>
+
+<!-- ============ NOTES ABOUT ME ============ -->
+<section id="mail">
+  <div class="wrap">
+    <h2 class="script-title fade">mail i got from work</h2>
+    <p class="sec-sub fade">real words from people i've worked with, copied from my linkedin ♡</p>
+    <div class="pcards">
+      <figure class="pcard fade" style="--r:-1.4deg">
+        <blockquote class="pc-msg">She consistently stood out for her sharp logical thinking, problem-solving ability, and strong ownership mindset… She is someone who can break down complex problems, think through them in a structured manner, and arrive at practical solutions.</blockquote>
+        <div class="pc-side">
+          <span class="pc-stamp" aria-hidden="true"><i>♡</i></span>
+          <span class="pc-mark" aria-hidden="true">MAR<br>2026</span>
+          <figcaption class="pc-addr">
+            <span><small>from</small> Sam Mammen</span>
+            <span>Operations &amp; Project Management Leader</span>
+            <span>my manager</span>
+          </figcaption>
+        </div>
+      </figure>
+      <figure class="pcard fade" style="--r:1.2deg">
+        <blockquote class="pc-msg">Vigneshwari is a dependable and committed professional… She quickly understands process requirements and executes them with accuracy and attention to detail.</blockquote>
+        <div class="pc-side">
+          <span class="pc-stamp" aria-hidden="true"><i>♡</i></span>
+          <span class="pc-mark" aria-hidden="true">TRINET<br>APR 2026</span>
+          <figcaption class="pc-addr">
+            <span><small>from</small> Vishnu Jayakumar</span>
+            <span>Lead Benefits Operations Specialist, TriNet</span>
+            <span>my team lead</span>
+          </figcaption>
+        </div>
+      </figure>
     </div>
+    <p class="pc-more fade"><a href="https://www.linkedin.com/in/vigna24/details/recommendations/" target="_blank" rel="noopener">read them in full on linkedin ↗</a></p>
   </div>
 </section>
 
